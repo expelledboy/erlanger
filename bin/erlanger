@@ -1,0 +1,10 @@
+## -*- bash -*-
+
+# in your .bashrc or .profile
+# export ERLANGER=$HOME/erlanger
+# source $ERLANGER/bin/erlanger
+
+PATH=$ERLANGER/bin:$PATH
+ERL_TOP=$ERLANGER/opt/erlang/versions/current
+ERL_LIBS=$ERL_TOP/packages
+export PATH ERL_TOP ERL_LIBS
