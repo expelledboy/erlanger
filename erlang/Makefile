@@ -5,7 +5,7 @@ ERLANGER ?= $(HOME)/erlanger
 ERLANG_OPT := $(ERLANGER)/opt/erlang
 ERLANG_BINS := dialyzer epmd erl erlc escript typer
 ERLANG_DIRS := $(foreach d,archives build versions,$(ERLANG_OPT)/$d)
-ERLANG_VSNS := $(foreach v,r16b, $(ERLANG_OPT)/versions/$v)
+ERLANG_VSNS := $(foreach v,R16B, $(ERLANG_OPT)/versions/$v)
 ERLANG_LINKS := $(ERLANG_BINS:%=$(ERLANGER)/bin/%)
 
 ##------------------------------------------------------------------------------
@@ -25,9 +25,9 @@ uninstall:
 
 .PHONY: build-latest r16b
 
-build-latest: r16b
+build-latest: R16B
 
-r16b: $(HOME)/.kerlrc $(ERLANG_OPT)/versions/r16b
+R16B: $(HOME)/.kerlrc $(ERLANG_OPT)/versions/R16B
 	# linking binaries to current erlang version
 	ln -fhs $(ERLANG_OPT)/versions/$@ $(ERLANG_OPT)/versions/current
 
@@ -37,10 +37,11 @@ $(ERLANG_DIRS):
 	mkdir -p $@
 
 $(ERLANG_LINKS):
-	ln -s $(ERLANG_OPT)/versions/current/bin/$$(basename $@) $@
+	ln -s $(ERLANG_OPT)/versions/current/bin/$(shell basename $@) $@
 
 $(ERLANG_VSNS):
-	kerl build $$(basename $@) $$(basename $@)
-	kerl install $$(basename $@)
+	kerl build $(shell basename $@) $(shell basename $@)
+	kerl install $(shell basename $@)
+	mkdir $@/packages
 
 ##------------------------------------------------------------------------------
