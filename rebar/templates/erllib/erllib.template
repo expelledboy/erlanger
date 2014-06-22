@@ -1,0 +1,21 @@
+%% -*- erlang -*-
+
+{variables, [{libname, "libname"}]}.
+
+{template, "libname.env.mk",                    "{{libname}}/env.mk"}.
+{template, "libname.Makefile",                  "{{libname}}/Makefile"}.
+{template, "libname.rebar.config",              "{{libname}}/rebar.config.dynamic"}.
+
+{template, "../common/erl.gitignore", "{{libname}}/.gitignore"}.
+{template, "../common/erl.README.md", "{{libname}}/README.md"}.
+
+{template, "libname.app.src",                   "{{libname}}/src/{{libname}}.app.src"}.
+{template, "libname.erl",                       "{{libname}}/src/{{libname}}.erl"}.
+{template, "libname.hrl",                       "{{libname}}/src/{{libname}}.hrl"}.
+{template, "libname_tests.erl",                 "{{libname}}/test/{{libname}}_tests.erl"}.
+
+{symlink, "rebar.config.dynamic", "{{libname}}/rebar.config"}.
+
+{dir, "{{libname}}/src"}.
+{dir, "{{libname}}/test"}.
+{dir, "{{libname}}/priv"}.

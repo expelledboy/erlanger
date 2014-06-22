@@ -1,0 +1,5 @@
+%% -*- erlang -*-
+
+{variables, [{type,server},{module, "_module"}]}.
+
+{template, "erl_sup.erl", "src/{{module}}_sup.erl"}.

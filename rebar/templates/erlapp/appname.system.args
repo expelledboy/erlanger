@@ -1,0 +1,21 @@
+
+# start sasl
+-boot start_sasl
+
+# start main application
+-s {{appname}}
+
+# start 'sync' script, for auto-reloading
+-s sync
+
+# node name
+-name {{appname}}@127.0.0.1
+
+# cookie name
+-setcookie {{appname}}_cookie
+
+# kernel polling
++K true
+
+# 4 async threads
++A 4

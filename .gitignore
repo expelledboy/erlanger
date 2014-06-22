@@ -1,0 +1,10 @@
+# os level
+.Trashes
+*.bak
+Desktop.ini
+.DS_Store
+
+# generated
+src/*
+opt/*
+bin/*

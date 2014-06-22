@@ -1,0 +1,17 @@
+%% -*- erlang -*-
+
+{application, {{appname}},
+ [
+  {description, "{{appname}}"},
+  {vsn, "semver"},
+  {registered, []},
+  {modules, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, {
+     {{appname}}_app, []
+    }},
+  {env, []}
+ ]}.

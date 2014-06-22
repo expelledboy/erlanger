@@ -1,0 +1,5 @@
+[ -z $ERLANGER ] && exit 1
+
+KERL_DEFAULT_INSTALL_DIR=$ERLANGER/opt/erlang/versions
+KERL_DOWNLOAD_DIR=$ERLANGER/opt/erlang/archives
+KERL_BUILD_DIR=$ERLANGER/opt/erlang/build

@@ -1,0 +1,27 @@
+%% -*- erlang -*-
+
+{variables, [{appname, "appname"}]}.
+
+{template, "appname.env.mk",                    "{{appname}}/env.mk"}.
+{template, "appname.Makefile",                  "{{appname}}/Makefile"}.
+{template, "appname.rebar.config",              "{{appname}}/rebar.config.dynamic"}.
+
+{template, "../common/erl.gitignore", "{{appname}}/.gitignore"}.
+{template, "../common/erl.README.md", "{{appname}}/README.md"}.
+
+{template, "appname.app.src",                   "{{appname}}/src/{{appname}}.app.src"}.
+{template, "appname_sup.erl",                   "{{appname}}/src/{{appname}}_sup.erl"}.
+{template, "appname_app.erl",                   "{{appname}}/src/{{appname}}_app.erl"}.
+{template, "appname_srv.erl",                   "{{appname}}/src/{{appname}}_srv.erl"}.
+{template, "appname.erl",                       "{{appname}}/src/{{appname}}.erl"}.
+{template, "appname.hrl",                       "{{appname}}/src/{{appname}}.hrl"}.
+
+{template, "appname.system.args",               "{{appname}}/node/system.args"}.
+{template, "appname.run.sh",                    "{{appname}}/node/run"}.
+
+{chmod, 8#0744, "{{appname}}/node/run"}.
+{symlink, "rebar.config.dynamic", "{{appname}}/rebar.config"}.
+
+{dir, "{{appname}}/src"}.
+{dir, "{{appname}}/test"}.
+{dir, "{{appname}}/priv"}.
