@@ -5,6 +5,6 @@ Desktop.ini
 .DS_Store
 
 # generated
-src/*
+usr/*
 opt/*
 bin/*
