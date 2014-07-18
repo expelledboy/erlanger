@@ -17,12 +17,11 @@ else
 all: compile
 endif
 
-
 clean:
 	# cleaning project using rebar
 	$(REBAR) clean
 
-distclean:
+distclean: .git
 	git clean -n -xd
 	# Are you sure? ^C to cancel
 	sleep 5
@@ -47,13 +46,16 @@ rebuild:
 	$(REBAR) refresh-deps
 	$(MAKE) compile
 
-compile: deps
-	# checking for git repo
-	[ -d .git ]
+init:
+	git init
+	git add -A
+	git add -f node/*
+
+compile: deps .git
 	# compiling using rebar
 	$(REBAR) skip_deps=true compile
 
-lock:
+lock: .git
 	# generating and symlinking rebar.config.lock file
 	$(REBAR) rebar lock-deps
 	ln -fhs rebar.config.lock rebar.config
@@ -89,8 +91,7 @@ deps:
 	$(REBAR) compile
 
 .git:
-	git init
-	git add -A
-	git add -f node/*
+	# checking for git repo
+	[ -d .git ]
 
 ##------------------------------------------------------------------------------
